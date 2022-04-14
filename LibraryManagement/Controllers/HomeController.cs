@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using LibraryManagement.Models;
+using LibraryData;
 
 namespace LibraryManagement.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly LibraryContext _db;
+
+        public HomeController(LibraryContext db)
+        {
+            _db = db;
+        }
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)

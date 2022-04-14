@@ -5,9 +5,12 @@ namespace LibraryData
 {
     public class LibraryContext : DbContext
     {
-        public LibraryContext(DbContextOptions options) : base(options) { }
-        
+        public LibraryContext(DbContextOptions<LibraryContext> options)
+            : base(options)
+        {
+        }
+
         public DbSet<Patron> Patrons { get; set; }
-        
+
     }
 }
