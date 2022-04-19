@@ -43,7 +43,7 @@ namespace LibraryServices
             return _context.LibraryAssets.FirstOrDefault(asset => asset.Id == id).Location;
         }
 
-        public string GetDewetIndex(int id)
+        public string GetDeweyIndex(int id)
         {
            if(_context.Books.Any(book => book.Id == id))
             {
