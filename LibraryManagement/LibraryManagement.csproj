@@ -10,6 +10,7 @@
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Models\Catalog\" />
+    <None Remove="Views\Catalog\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
@@ -24,11 +25,15 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\Catalog\" />
+    <Folder Include="Views\Catalog\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\LibraryData\LibraryData.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Catalog\" />
+    <ProjectReference Include="..\LibraryServices\LibraryServices.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>
