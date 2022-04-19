@@ -13,7 +13,7 @@ namespace LibraryData
         IEnumerable<Hold> GetCurrentHolds(int id);
 
         Checkout GetById(int checkoutId);
-        Checkout GetLatestCheckout(int assetId);
+        Checkout GetLatestCheckout(int id);
         void CheckOutItem(int assetId, int libraryCardId);
         void CheckInItem(int assetId, int libraryCardId);
         void PlaceHold(int assetId, int libraryCardId);
