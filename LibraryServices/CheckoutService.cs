@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryServices
 {
-    public class CheckoutService : Checkout
+    public class CheckoutService : ICheckout
     {
         private LibraryContext _context;
 
@@ -258,7 +258,31 @@ namespace LibraryServices
             return _context.Checkouts
                 .Where(co => co.LibraryAsset.Id == assetId)
                 .Any();
+        }
 
+        public string GetCurrentCheckoutPatron(int assetId)
+        {
+            var checkout = GetCheckoutByAssetId(assetId);
+            if(checkout == null)
+            {
+                return "";
+            };
+
+            var cardId = checkout.LibraryCard.Id;
+
+            var patron = _context.Patrons
+                .Include(p => p.LibraryCard)
+                .FirstOrDefault(p => p.LibraryCard.Id == cardId);
+
+            return patron.FirstName + " " + patron.LastName;
+        }
+
+        private Checkout GetCheckoutByAssetId(int assetId)
+        {
+            return _context.Checkouts
+                .Include(co => co.LibraryAsset)
+                .Include(co => co.LibraryCard)
+                .FirstOrDefault(co => co.LibraryAsset.Id == assetId);
         }
     }
 }
