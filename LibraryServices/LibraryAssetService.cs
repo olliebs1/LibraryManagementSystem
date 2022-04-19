@@ -26,7 +26,7 @@ namespace LibraryServices
         {
             return _context.LibraryAssets
                 .Include(asset => asset.Status)
-                .Include(asset => asset.Location);
+                .Include(asset => asset.Location).ToList();
 
         }
 
@@ -74,7 +74,7 @@ namespace LibraryServices
 
         public string GetType(int id)
         {
-            var book = _context.LibraryAssets.OfType<Book>().Where(b => b.Id == id);
+            var book = _context.LibraryAssets.OfType<Book>().Where(b => b.Id == id).ToList();
 
             return book.Any() ? "Book" : "Video";
         }
@@ -82,10 +82,10 @@ namespace LibraryServices
         public string GetAuthorOrDirector(int id)
         {
             var isBook = _context.LibraryAssets.OfType<Book>()
-                .Where(asset => asset.Id == id).Any();
+                .Where(asset => asset.Id == id).ToList().Any();
 
             var isVideo = _context.LibraryAssets.OfType<Video>()
-                .Where(asset => asset.Id == id).Any();
+                .Where(asset => asset.Id == id).ToList().Any();
 
             return isBook ?
                 _context.Books.FirstOrDefault(book => book.Id == id).Author :

@@ -14,17 +14,17 @@
             </thead>
             <tbody>
                 @foreach (var asset in Model.Assets)
-            {
-                <tr class="assetRow">
-                    <td class="">
-                        <a asp-controller="Catalog" asp-action="Details" asp-route-id="@asset.Id">
-                            <img src="@asset.ImageUrl" class="imageCell" />
-                        </a>
-                    </td>
-                    <td class="">@asset.AuthorOrDirector</td>
-                    <td class="">@asset.DeweyCallNumber</td>
-                </tr>
-            }
+                {
+                    <tr class="assetRow">
+                        <td class="">
+                            <a asp-controller="Catalog" asp-action="Details" asp-route-id="@asset.Id">
+                                <img src="@asset.ImageUrl" class="imageCell" />
+                            </a>
+                        </td>
+                        <td class="">@asset.AuthorOrDirector</td>
+                        <td class="">@asset.DeweyCallNumber</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
