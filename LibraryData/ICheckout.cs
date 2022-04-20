@@ -15,7 +15,7 @@ namespace LibraryData
         Checkout GetById(int checkoutId);
         Checkout GetLatestCheckout(int id);
         void CheckOutItem(int assetId, int libraryCardId);
-        void CheckInItem(int assetId, int libraryCardId);
+        void CheckInItem(int assetId);
         void PlaceHold(int assetId, int libraryCardId);
         void MarkLost(int assetId);
         void MarkFound(int assetId);
@@ -24,6 +24,5 @@ namespace LibraryData
         string GetCurrentCheckoutPatron(int assetId);
         DateTime GetCurrentHoldPlaced(int id);
         bool IsCheckedOut(int id);
-
     }
 }
