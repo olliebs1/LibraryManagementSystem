@@ -44,12 +44,12 @@ namespace LibraryManagement.Controllers
         {
             var asset = _assets.GetById(id);
 
-            var currentHolds = _checkouts.GetCurrentHolds(id)
+            var currentHolds = _checkouts.GetCurrentHolds(id).ToList()
                 .Select(a => new AssetHoldModel
                 {
                     HoldPlaced = _checkouts.GetCurrentHoldPlaced(a.Id),
                     PatronName = _checkouts.GetCurrentHoldPatronName(a.Id)
-                }).ToList();
+                });
 
             var model = new AssetDetailModel
             {
