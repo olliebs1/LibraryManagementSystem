@@ -13,6 +13,7 @@
     <None Remove="Views\Catalog\" />
     <None Remove="Models\Checkout\" />
     <None Remove="Microsoft.ApplicationInsights.AspNetCore" />
+    <None Remove="Models\Patron\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
@@ -32,6 +33,7 @@
     <Folder Include="Views\Catalog\" />
     <Folder Include="Models\CheckoutModels\" />
     <Folder Include="wwwroot\images\" />
+    <Folder Include="Models\Patron\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryData\LibraryData.csproj">
