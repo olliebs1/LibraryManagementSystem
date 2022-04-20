@@ -24,7 +24,7 @@ namespace LibraryServices
 
         public IEnumerable<Checkout> GetAll()
         {
-           return _context.Checkouts;
+           return _context.Checkouts.ToList();
         }
 
         public Checkout GetById(int checkoutId)

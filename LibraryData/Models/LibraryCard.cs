@@ -12,6 +12,6 @@ namespace LibraryData.Models
 
         public DateTime Created { get; set; }
 
-        public virtual IEnumerable<ICheckout> Checkouts { get; set; }
+        public virtual IEnumerable<Checkout> Checkouts { get; set; }
     }
 }

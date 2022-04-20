@@ -48,7 +48,7 @@ namespace LibraryManagement.Controllers
                 {
                     HoldPlaced = _checkouts.GetCurrentHoldPlaced(a.Id),
                     PatronName = _checkouts.GetCurrentHoldPatronName(a.Id)
-                });
+                }).ToList();
 
             var model = new AssetDetailModel
             {

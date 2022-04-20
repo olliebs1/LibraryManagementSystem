@@ -12,7 +12,7 @@ namespace LibraryData
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Video> Videos { get; set; }
-        public DbSet<Models.Checkout> Checkouts { get; set; }
+        public DbSet<Checkout> Checkouts { get; set; }
         public DbSet<CheckoutHistory> CheckoutHistories { get; set; }
         public DbSet<LibraryBranch> LibraryBranches { get; set; }
         public DbSet<BranchHours> BranchHours { get; set; }
