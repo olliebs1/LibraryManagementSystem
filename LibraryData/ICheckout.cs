@@ -21,7 +21,7 @@ namespace LibraryData
         void MarkFound(int assetId);
 
         string GetCurrentHoldPatronName(int id);
-        string GetCurrentCheckoutPatron(int assetId);
+        string GetCurrentCheckoutPatron(int id);
         DateTime GetCurrentHoldPlaced(int id);
         bool IsCheckedOut(int id);
     }

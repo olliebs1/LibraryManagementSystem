@@ -188,6 +188,7 @@ namespace LibraryServices
             if(currentHolds.Any())
             {
                 CheckoutToEarliestHold(assetId, currentHolds);
+                return;
             }
             // otherwise, update the item status to available.
             UpdateAssetStatus(assetId, "Available");
@@ -261,9 +262,9 @@ namespace LibraryServices
                 .Any();
         }
 
-        public string GetCurrentCheckoutPatron(int assetId)
+        public string GetCurrentCheckoutPatron(int id)
         {
-            var checkout = GetCheckoutByAssetId(assetId);
+            var checkout = GetCheckoutByAssetId(id);
             if(checkout == null)
             {
                 return "";

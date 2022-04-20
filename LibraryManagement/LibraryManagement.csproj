@@ -12,6 +12,7 @@
     <None Remove="Models\Catalog\" />
     <None Remove="Views\Catalog\" />
     <None Remove="Models\Checkout\" />
+    <None Remove="Microsoft.ApplicationInsights.AspNetCore" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
@@ -24,11 +25,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.20.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Catalog\" />
     <Folder Include="Views\Catalog\" />
-    <Folder Include="Models\Checkout\" />
+    <Folder Include="Models\CheckoutModels\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryData\LibraryData.csproj">
@@ -37,5 +40,8 @@
     <ProjectReference Include="..\LibraryServices\LibraryServices.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\" />
   </ItemGroup>
 </Project>
