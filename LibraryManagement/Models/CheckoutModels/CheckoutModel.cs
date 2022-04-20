@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LibraryManagement.Models.Checkout
+namespace LibraryManagement.Models.CheckoutModels
 {
     public class CheckoutModel
     {

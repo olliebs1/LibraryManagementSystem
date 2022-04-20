@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using LibraryData;
 using LibraryManagement.Models.Catalog;
-using LibraryManagement.Models.Checkout;
+using LibraryManagement.Models.CheckoutModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryManagement.Controllers
