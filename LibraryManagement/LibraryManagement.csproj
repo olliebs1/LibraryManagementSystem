@@ -11,6 +11,7 @@
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Models\Catalog\" />
     <None Remove="Views\Catalog\" />
+    <None Remove="Models\Checkout\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
@@ -27,6 +28,7 @@
   <ItemGroup>
     <Folder Include="Models\Catalog\" />
     <Folder Include="Views\Catalog\" />
+    <Folder Include="Models\Checkout\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryData\LibraryData.csproj">

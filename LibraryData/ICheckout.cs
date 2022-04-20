@@ -23,6 +23,7 @@ namespace LibraryData
         string GetCurrentHoldPatronName(int id);
         string GetCurrentCheckoutPatron(int assetId);
         DateTime GetCurrentHoldPlaced(int id);
+        bool IsCheckedOut(int id);
 
     }
 }
