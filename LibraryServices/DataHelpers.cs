@@ -17,16 +17,15 @@ namespace LibraryServices
                 var closeTime = HumaniseTime(time.CloseTime);
 
                 var timeEntry = $"{day} {openTime} to {closeTime}";
-
                 hours.Add(timeEntry);
             }
-
             return hours;
         }
 
         public static string HumaniseDay(int number)
         {
-            return Enum.GetName(typeof(DayOfWeek), number);
+            //our data correlates 1 to sunday, so subtract 1;
+            return Enum.GetName(typeof(DayOfWeek), number - 1);
         }
 
         public static string HumaniseTime(int time)
