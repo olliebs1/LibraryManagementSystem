@@ -16,6 +16,7 @@
     <None Remove="Models\Patron\" />
     <None Remove="Views\Patron\" />
     <None Remove="Models\Branch\" />
+    <None Remove="Views\Branch\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
@@ -38,6 +39,7 @@
     <Folder Include="Models\Patron\" />
     <Folder Include="Views\Patron\" />
     <Folder Include="Models\Branch\" />
+    <Folder Include="Views\Branch\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryData\LibraryData.csproj">
