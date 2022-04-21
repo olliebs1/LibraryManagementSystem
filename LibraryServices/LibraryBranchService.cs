@@ -32,7 +32,8 @@ namespace LibraryServices
         {
             return _context.LibraryBranches
                 .Include(b => b.Patrons)
-                .Include(b => b.LibraryAssets);
+                .Include(b => b.LibraryAssets)
+                .ToList();
         }
 
         public IEnumerable<LibraryAsset> GetAssets(int branchId)

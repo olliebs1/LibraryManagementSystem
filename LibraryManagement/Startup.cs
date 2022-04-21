@@ -26,7 +26,7 @@ namespace LibraryManagement
             services.AddScoped<ILibraryAsset, LibraryAssetService>();
             services.AddScoped<ICheckout, CheckoutService>();
             services.AddScoped<IPatron, PatronService>();
-
+            services.AddScoped<ILibraryBranch, LibraryBranchService>();
 
             services.AddDbContext<LibraryContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
