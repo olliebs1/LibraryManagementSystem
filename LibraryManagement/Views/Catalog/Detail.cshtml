@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="page-header clearfix detailHeading">
-        <h2 class="text-muted">View Library Item</h2>
+        <h2 class="title">View Library Item</h2>
     </div>
 </div>
 
@@ -14,13 +14,18 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div>
-                <p id="itemTitle">@Model.Title</p>
-                <p id="itemAuthor">@Model.AuthorOrDirector</p>
-                <p id="itemStatus">@Model.Status</p>
-                <p id="itemType">@Model.Type</p>
-                <p id="itemLocation">@Model.CurrentLocation</p>
-
+            <div class="itemDetails">
+                <p id="itemTitle">Title: <span>@Model.Title</span></p>
+                <p id="itemAuthor">Author: <span>@Model.AuthorOrDirector</span></p>
+                <p id="itemStatus">Status: <span>@Model.Status</span></p>
+                <p id="itemLocation">Location: <span>@Model.CurrentLocation</span></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="itemDetails">
+                <p id="itemISBN">ISBN: <span>@Model.ISBN</span></p>
+                <p id="itemDewey">Call Number: <span>@Model.DeweyCallNumber</span></p>
+                <p id="itemCost">Replacement Cost: <span>@Model.Cost</span></p>
                 @if (Model.Status == "Lost")
                 {
                     <p>This item has been lost. It cannot be checked out.</p>
@@ -30,8 +35,8 @@
 
                 @if (Model.Status == "Checked Out")
                 {
-                    <p id="itemPatron">Checkout Out By: @Model.PatronName </p>
-                    
+                    <p id="itemPatron">Checked Out By: <span>@Model.PatronName</span> </p>
+
                     <p><a class="btn btn-lg btn-success" role="button" asp-controller="Catalog" asp-action="CheckIn" asp-route-id="@Model.AssetId">Check In</a></p>
                     <p><a class="btn btn-lg btn-warning" role="button" asp-controller="Catalog" asp-action="Hold" asp-route-id="@Model.AssetId">Place Hold</a></p>
                 }
@@ -40,36 +45,19 @@
                     <p><a class="btn btn-lg btn-info" role="button" asp-controller="Catalog" asp-action="Checkout" asp-route-id="@Model.AssetId">Check Out</a></p>
                 }
             </div>
-            <div class="col-md-4 detailInfo">
-                <table>
-                    <tr>
-                        <td class="itemLabel">ISBN: </td>
-                        <td class="itemValue">@Model.ISBN</td>
-                    </tr>
-                    <tr>
-                        <td class="itemLabel">Call Number: </td>
-                        <td class="itemValue">@Model.DeweyCallNumber</td>
-                    </tr>
-                    <tr>
-                        <td class="itemLabel">Replacement Cost: </td>
-                        <td class="itemValue">@Model.Cost</td>
-                    </tr>
-                </table>
-            </div>
         </div>
     </div>
 </div>
 
 <div class="row">
     <div class="col-lg-6">
-        <h4>Checkout History</h4>
+        <h4 class="tableTitle">Checkout History</h4>
         <table class="table table-bordered table-hover table-condensed">
             <thead>
                 <tr>
                     <th>Date Loaned</th>
                     <th>Date Returned</th>
                     <th>Card ID</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -91,7 +79,7 @@
         </table>
     </div>
     <div class="col-lg-6">
-        <h4>Current Holds</h4>
+        <h4 class="tableTitle">Current Holds</h4>
         <table class="table table-bordered table-hover table-condensed">
             <thead>
                 <tr>
@@ -117,8 +105,26 @@
 </div>
 
 <style>
+    .title {
+        text-align: center;
+        margin: 20px;
+    }
     .detailImage {
+        align-items: center;
         height: 300px;
         width: 200px;
+        margin: 20px;
+    }
+    .itemDetails > p {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 20px;
+    }
+    .itemDetails > p > span {
+        font-size: 15px;
+        font-weight: normal;
+    }
+    .tableTitle {
+        margin: 20px;
     }
 </style>
