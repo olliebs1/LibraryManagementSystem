@@ -1,9 +1,9 @@
 ﻿@model LibraryManagement.Models.Catalog.AssetIndexModel
 
 <div id="assets">
-    <h3>Library Catalog</h3>
+    <h3 class="title">Library Catalog</h3>
     <div id="assetsTable">
-        <table class="table table-condensed" id="catalogIndexTable">
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="catalogIndexTable">
             <thead>
                 <tr>
                     <th class="tableHeader">Image</th>
@@ -16,14 +16,14 @@
                 @foreach (var asset in Model.Assets)
                 {
                     <tr class="assetRow">
-                        <td class="">
+                        <td class="tableData">
                             <a asp-controller="Catalog" asp-action="Detail" asp-route-id="@asset.Id">
                                 <img src="@asset.ImageUrl" class="imageCell" />
                             </a>
                         </td>
-                        <td class="assetTitle">@asset.Title</td>
-                        <td class="assetAuthorOrDirector">@asset.AuthorOrDirector</td>
-                        <td class="assetDewey">@asset.DeweyCallNumber</td>
+                        <td class="tableData">@asset.Title</td>
+                        <td class="tableData">@asset.AuthorOrDirector</td>
+                        <td class="tableData">@asset.DeweyCallNumber</td>
                     </tr>
                 }
             </tbody>
@@ -33,14 +33,30 @@
 
 
 <style>
+    .title {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
     .imageCell {
         height: 300px;
         width: 200px;
+        margin-bottom: 10px;
     }
-    imageCell:hover {
-        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    #catalogIndexTable{
+        width: 100%;
     }
-    .tablerHeader {
-        text-align: center;
+    .tableHeader {
+        text-align: center !important;
+    }
+    .tableData {
+        position: relative !important;
+        text-align: center !important;
+        vertical-align: middle !important;
+        height: 48px !important;
+        border-top: 1px solid rgba(0,0,0,.12) !important;
+        border-bottom: 1px solid rgba(0,0,0,.12) !important;
+        padding: 12px 18px 0 !important;
+        box-sizing: border-box !important;
     }
 </style>

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Online Library";
 }
 
-<h3>@ViewData["Title"]</h3>
+<h3 class="title">@ViewData["Title"]</h3>
 
 <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--4-col">
@@ -58,6 +58,10 @@
 </div>
 
 <style>
+    .title {
+        margin-top: 20px;
+        text-align: center;
+    }
     #catalog {
         background: url('/images/books.jpeg') bottom right 15% no-repeat #555;
     }
