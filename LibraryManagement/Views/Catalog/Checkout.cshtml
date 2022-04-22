@@ -1,40 +1,66 @@
 ﻿@model LibraryManagement.Models.CheckoutModels.CheckoutModel
 
-@section Scripts {
-
-}
-
-@section Styles {
-
-}
-
-<div class="container">
-    <div class="header clearfix detailHeading">
-        <h2 class="text-muted">Checkout Library Item</h2>
+<div>
+    <div>
+        <h2 class="title">Checkout Library Item</h2>
     </div>
-
-    <div class="jumbotron">
-        <div class="row">
-            <div class="col-md-3">
-                <div>
-                    <p class="itemTitle">@Model.Title</p>
-                    <img class="detailImage" src="@Model.ImageUrl" />
-                </div>
+    <div style="margin: auto; width: 50%;">
+        <p class="itemTitle">Title: <span>@Model.Title</span></p>
+        <img class="detailImage" src="@Model.ImageUrl" />
+        @using (Html.BeginForm("PlaceCheckout", "Catalog", FormMethod.Post))
+        {
+            @Html.HiddenFor(a => a.AssetId)
+            <div class="textBox">
+                Please insert a Library Card ID:
+                @Html.TextBoxFor(a => a.LibraryCardId)
             </div>
-
-            <div class="col-md-9">
-                @using (Html.BeginForm("PlaceCheckout", "Catalog", FormMethod.Post))
-                {
-                    @Html.HiddenFor(a => a.AssetId)
-                    <div>
-                        Please insert a Library Card ID.
-                        @Html.TextBoxFor(a => a.LibraryCardId)
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-success btn-lg">Check Out.</button>
-                    </div>
-                }
+            <div class="checkoutButton">
+                <button type="submit" class="btn btn-success btn-lg">Check Out.</button>
             </div>
-        </div>
+        }
     </div>
 </div>
+
+
+<style>
+    .title {
+        text-align: center;
+        margin: 20px;
+    }
+    .details {
+        width: 100% !important;
+    }
+    .itemDetails {
+        width: 100%;
+        margin-right: 50%;
+        margin-left: 50%;
+    }
+    .itemTitle {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .itemTitle > span {
+        font-size: 15px;
+        font-weight: normal;
+    }
+    .detailImage {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 300px;
+        width: 200px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .textBox {
+        text-align: center;
+        margin:10px;
+    }
+    .checkoutButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+    }
+</style>
