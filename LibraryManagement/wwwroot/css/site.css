@@ -71,8 +71,13 @@ a:visited {
     .nav-masthead .nav-link + .nav-link {
         margin-left: 1rem;
     }
-
+    s
 .nav-masthead .active {
     color: #fff;
     border-bottom-color: #fff;
+}
+
+.imageCell {
+    height: 300px;
+    width: 200px;
 }

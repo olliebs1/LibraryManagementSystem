@@ -6,10 +6,10 @@
         <table class="table table-condensed" id="catalogIndexTable">
             <thead>
                 <tr>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Author / Director</th>
-                    <th>Dewey Call Number</th>
+                    <th class="tableHeader">Image</th>
+                    <th class="tableHeader">Title</th>
+                    <th class="tableHeader">Author / Director</th>
+                    <th class="tableHeader">Dewey Call Number</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,12 +21,26 @@
                                 <img src="@asset.ImageUrl" class="imageCell" />
                             </a>
                         </td>
-                        <td class="">@asset.Title</td>
-                        <td class="">@asset.AuthorOrDirector</td>
-                        <td class="">@asset.DeweyCallNumber</td>
+                        <td class="assetTitle">@asset.Title</td>
+                        <td class="assetAuthorOrDirector">@asset.AuthorOrDirector</td>
+                        <td class="assetDewey">@asset.DeweyCallNumber</td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
 </div>
+
+
+<style>
+    .imageCell {
+        height: 300px;
+        width: 200px;
+    }
+    imageCell:hover {
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    }
+    .tablerHeader {
+        text-align: center;
+    }
+</style>
