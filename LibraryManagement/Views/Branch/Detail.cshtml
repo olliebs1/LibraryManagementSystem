@@ -1,56 +1,93 @@
 ﻿@model LibraryManagement.Models.Branch.BranchDetailModel
 
 @{
-    ViewBag.Title = @Model.Name + " Branch";
+    ViewBag.Title = @Model.Name;
 }
 
-<div class="container">
-    <div class="header clearfix detailHeading">
-        <h2 class="text-muted">Branch Information</h2>
+<div>
+    <div>
+        <h2 class="title">@ViewBag.Title</h2>
     </div>
-    <div class="jumbotron">
-        <div class="row">
-            <img src="@Model.ImageUrl"/>
-        </div>
-        <div class="row branchInfo">
-            <div class="col-md-8">
-                <h2>@Model.Name</h2>
-                <div class="branchContact">
-                    <div id="branchAddress">Address: @Model.Address</div>
-                    <div id="branchTel">Telephone: @Model.Telephone</div>
-                </div>
-                <div id="branchDescription">
-                    <p class="caption">@Model.Description</p>
-                </div>
-                <div id="branchHours">
-                    <ul>
-                        @foreach(var day in Model.HoursOpen)
-                        {
-                            <li>@day</li>
-                        }
-                    </ul>
-                </div>
+    <div class="row">
+        <img class="branchImage" src="@Model.ImageUrl"/>
+    </div>
+    <div class="row branchInfo">
+        <div class="col-md">
+            <div class="branchContact">
+                <div id="branchAddress">Address: <span>@Model.Address</span></div>
+                <div id="branchTel">Telephone: <span>@Model.Telephone</span></div>
+                <p class="openingTimes">Opening Times: </p>
+                <ul>
+                    @foreach (var day in Model.HoursOpen)
+                    {
+                        <li>@day</li>
+                    }
+                </ul>
             </div>
-            <div class="col-md-4">
-                <table>
-                    <tr>
-                        <td class="itemLabel">Date Opened: </td>
-                        <td class="itemValue">@Model.OpenDate</td>
-                    </tr>
-                    <tr>
-                        <td class="itemLabel">Number of Patrons: </td>
-                        <td class="itemValue">@Model.NumberOfPatrons</td>
-                    </tr>
-                    <tr>
-                        <td class="itemLabel">Number of Assets: </td>
-                        <td class="itemValue">@Model.NumberOfAssets</td>
-                    </tr>
-                    <tr>
-                        <td class="itemLabel">Value of Assets: </td>
-                        <td class="itemValue">£@Model.TotalAssetValue</td>
-                    </tr>
-                </table>
+        </div>
+        <div class="col-md">
+            <div class="branchDetails">
+                <div id="branchOpenDate">Date Opened: <span>@Model.OpenDate</span></div>
+                <div id="branchNumOfPatrons">Number Of Patrons: <span>@Model.NumberOfPatrons</span></div>
+                <div id="branchNumOfAssets">Number Of Assets: <span>@Model.NumberOfAssets</span></div>
+                <div id="branchAssetValue">Value Of Assets: <span>@Model.TotalAssetValue</span></div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .title {
+        text-align: center;
+        margin: 20px;
+    }
+    .branchInfo {
+        margin: auto;
+        width: 50%;
+    }
+    .branchImage {
+        margin: auto;
+        height: 300px !important;
+        width: 50% !important;
+    }
+    
+    .branchContact > div {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 10px;
+    }
+
+    .branchContact > div > span {
+        font-size: 15px;
+        font-weight: normal;
+        margin: 10px;
+    }
+    .branchDetails > div {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 10px;
+    }
+
+    .branchDetails > div > span {
+        font-size: 15px;
+        font-weight: normal;
+        margin: 10px;
+    }
+    .openingTimes {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 10px;
+    }
+
+    .feeValue {
+        color: red;
+    }
+
+    .patronAssets {
+        margin: 10px;
+    }
+
+    .patronHolds {
+        margin: 10px;
+    }
+</style>
