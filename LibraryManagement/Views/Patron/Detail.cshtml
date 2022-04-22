@@ -1,75 +1,102 @@
 ﻿@model LibraryManagement.Models.Patron.PatronDetailModel;
 
-<div class="container">
-    <div class="header clearfix detailHeading">
-        <h2 class="text-muted">Patron Information</h2>
+<div>
+    <div>
+        <h2 class="title">Patron Information</h2>
     </div>
-    <div class="jumbotron">
-        <div class="row">
-            <div class="col-md-4">
-                <h2>@Model.FirstName @Model.LastName</h2>
-                <div class="patronContact">
-                    <div id="patronTel">Library Card Id: @Model.LibraryCardId</div>
-                    <div id="patronAddress">Address: @Model.Address</div>
-                    <div id="patronTel">Telephone: @Model.Telephone</div>
-                    <div id="patronDate">Member Since: @Model.MemberSince</div>
-                    <div id="patronLibrary">Home Library: @Model.HomeLibraryBranch</div>
-                    @if (Model.OverDueFees > 0)
-                    {
-                        <div id="patronHasFees">Current Fees Due: £@Model.OverDueFees</div>
-                    }
-                    else
-                    {
-                        <div id="patronNoFees">No Fees Currently Due.</div>
-                    }
-                </div>
-            </div>
-            <div class="col-md-4">
-                <h4>Assets Currently Checkout Out</h4>
-                @if(Model.AssetsCheckedOut.Any())
+    <div class="row">
+        <div class="col-md-4">
+            <h2 class="patronName">@Model.FirstName @Model.LastName</h2>
+            <div class="patronContact">
+                <div id="patronTel">Library Card Id: <span>@Model.LibraryCardId</span></div>
+                <div id="patronAddress">Address: <span>@Model.Address</span></div>
+                <div id="patronTel">Telephone: <span>@Model.Telephone</span></div>
+                <div id="patronDate">Member Since: <span>@Model.MemberSince</span></div>
+                <div id="patronLibrary">Home Library: <span>@Model.HomeLibraryBranch</span></div>
+                @if (Model.OverDueFees > 0)
                 {
-                    <div class="patronAssets">
-                        <ul>
-                            @foreach(var checkout in Model.AssetsCheckedOut)
-                            {
-                                <li>
-                                    @checkout.LibraryAsset.Title - (Library Asset Id: @checkout.LibraryAsset.Id)
-                                    <ul>
-                                        <li>
-                                            Since: @checkout.Since
-                                        </li>
-                                        <li>
-                                            Due: @checkout.Until
-                                        </li>
-                                    </ul>
-                                </li>
-                            }
-                        </ul>
-                    </div>
+                    <div id="patronHasFees">Current Fees Due: <span class="feeValue">£@Model.OverDueFees</span></div>
                 }
                 else
                 {
-                    <div>No items currently checked out.</div>
-                }
-            </div>
-            <div class="col-md-4">
-                <h4>Assets Currently On Hold</h4>
-                @if (Model.Holds.Any())
-                {
-                    <div id="patronHolds">
-                        <ul>
-                            @foreach(var hold in Model.Holds)
-                            {
-                                <li>@hold.LibraryAsset.Title - Placed @hold.HoldPlaced.ToString("yy-dd-MM - HH:mm") </li>
-                            }
-                        </ul>
-                    </div>
-                }
-                else
-                {
-                    <div>No items on hold.</div>
+                    <div id="patronNoFees">No Fees Currently Due.</div>
                 }
             </div>
         </div>
+        <div class="col-md-4">
+            <h4>Assets Currently Checkout Out</h4>
+            @if(Model.AssetsCheckedOut.Any())
+            {
+                <div class="patronAssets">
+                    <ul>
+                        @foreach(var checkout in Model.AssetsCheckedOut)
+                        {
+                            <li>
+                                @checkout.LibraryAsset.Title - (Library Asset Id: @checkout.LibraryAsset.Id)
+                                <ul>
+                                    <li>
+                                        Since: @checkout.Since
+                                    </li>
+                                    <li>
+                                        Due: @checkout.Until
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <div>No items currently checked out.</div>
+            }
+        </div>
+        <div class="col-md-4">
+            <h4>Assets Currently On Hold</h4>
+            @if (Model.Holds.Any())
+            {
+                <div id="patronHolds">
+                    <ul>
+                        @foreach(var hold in Model.Holds)
+                        {
+                            <li>@hold.LibraryAsset.Title - Placed @hold.HoldPlaced.ToString("yy-dd-MM - HH:mm") </li>
+                        }
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <div>No items on hold.</div>
+            }
+        </div>
     </div>
 </div>
+
+<style>
+    .title {
+        text-align: center;
+        margin: 20px;
+    }
+    .patronName {
+        color: darkblue;
+    }
+    .patronContact > div {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 10px;
+    }
+    .patronContact > div > span{
+        font-size: 15px;
+        font-weight: normal;
+        margin: 10px;
+    }
+    .feeValue {
+        color: red;
+    }
+    .patronAssets {
+        margin: 10px;
+    }
+    .patronHolds {
+        margin: 10px;
+    }
+</style>
