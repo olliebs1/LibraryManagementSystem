@@ -4,10 +4,10 @@
     ViewBag.Title = "Branch Index";
 }
 
-<h3>@ViewBag.Title</h3>
+<h3 class="title">@ViewBag.Title</h3>
 
 <div id="branchIndex">
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp customTable" id="branchIndexTable">
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp customTable" id="branchIndexTable">
         <thead>
             <tr>
                 <th>Branch Name</th>
@@ -31,3 +31,15 @@
         </tbody>
     </table>
 </div>
+
+<style>
+    .title {
+        text-align: center;
+        margin: 20px;
+    }
+
+    .customTable {
+        margin: auto;
+        width: 50%;
+    }
+</style>
